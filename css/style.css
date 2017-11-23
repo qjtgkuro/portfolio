@@ -1,0 +1,270 @@
+/*=============================================
+=            general            =
+=============================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700');
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #F7F2A6;
+}
+
+button:focus {
+    outline: none;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+
+/*=============================================
+=            header            =
+=============================================*/
+
+#header {
+    background-image: url('../img/p_pt_0049_l_pt_00498.png');
+    width: 100%;
+    height: 100%;
+}
+
+#header>.container {
+    z-index: 5;
+    position: relative;
+    text-shadow: 2px 5px 15px rgba(0, 0, 0, .8);
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 3px 18px rgba(0, 0, 0, .5);
+}
+
+
+/*=============================================
+=            Work            =
+=============================================*/
+
+[id^='work'] {
+    background-size: cover;
+    background-position: center top;
+    height: 350px;
+    filter: grayscale(100%);
+    transition: all .3s ease;
+}
+
+[id^='work']>.galleryText {
+    line-height: 350px;
+    font-size: 6px;
+    color: white;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+    text-align: center;
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+[id^='work']:hover {
+    filter: grayscale(0%);
+    cursor: pointer;
+}
+
+[id^='work']:hover>.galleryText {
+    font-size: 30px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+#work1 {
+    background-image: url('../img/techtalk1.jpg');
+}
+
+#work2 {
+    background-image: url('../img/learning1.jpeg');
+}
+
+#work3 {
+    background-image: url('../img/event2.jpeg');
+}
+
+#work4 {
+    background-image: url('../img/openstack1.jpg');
+}
+
+#WorkCarousel {
+    width: 700px;
+    height: 350px;
+}
+
+@media (max-width: 720px) {
+    #WorkCarousel {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+
+/*=============================================
+=            Experience           =
+=============================================*/
+
+.timeline {
+    /* 把預設ul會有的margin padding與列表的點取消 */
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    /* 讓timeline可被.timeline:before參考定位 */
+    position: relative;
+}
+
+
+/* 用.timeline:before作為時間軸 */
+
+.timeline:before {
+    content: "";
+    /* 時間軸的寬度 */
+    width: 5px;
+    /* 時間軸的顏色 */
+    background-color: rgba(134, 189, 45, .5);
+    /* 使時間軸固定在.timeline正中央 */
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.timeline>li {
+    position: relative;
+    /* 讓對話框與對話框之間保持上下距離 */
+    padding: 20px 0;
+}
+
+
+/* 使每塊浮動的li與li之間能換行 */
+
+.timeline>li:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.timeline .timeline-content {
+    width: 50%;
+    float: left;
+    /* 對話框背景顏色 */
+    background-color: #64BF9E;
+    border-radius: 10px;
+    padding: 30px 30px;
+    position: relative;
+    box-shadow: 0 20px 20px -10px rgba(30, 27, 25, .25);
+}
+
+
+/* 選到排右排的對話框 */
+
+.timeline>li:not(.timeline-right) {
+    /* 讓它離timeline-circle有點距離 */
+    padding-right: 100px;
+}
+
+
+/* 選到排左排的對話框 */
+
+.timeline>li.timeline-right {
+    /* 讓它離timeline-circle有點距離 */
+    padding-left: 100px;
+}
+
+
+/* 繪製左排對話框的箭頭 */
+
+.timeline .timeline-content:after {
+    content: "";
+    position: absolute;
+    /* 設定箭頭的位置 */
+    top: 40px;
+    right: -12px;
+    display: block;
+    /* 設定箭頭的大小與顏色 */
+    border-top: 12px solid transparent;
+    border-left: 12px solid #64BF9E;
+    border-right: 0 solid #64BF9E;
+    border-bottom: 12px solid transparent;
+}
+
+.timeline .timeline-circle {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    /* 設定圓點顏色 */
+    background-color: #F2922A;
+    z-index: 100;
+    border-radius: 50%;
+}
+
+
+/* 設定右排的對話框向右邊浮動 */
+
+.timeline>li.timeline-right .timeline-content {
+    float: right;
+}
+
+
+/* 選到排右排的箭頭 */
+
+.timeline>li.timeline-right .timeline-content:after {
+    border-left-width: 0;
+    border-right-width: 12px;
+    /* 設定右排箭頭的位置 */
+    left: -12px;
+    right: auto;
+}
+
+
+/* 當螢幕寬度小於等於720後... */
+
+@media (max-width: 720px) {
+    /* 當手機螢幕時把對話框設定成100% */
+    .timeline>li .timeline-content {
+        width: 100%;
+    }
+    /* 當手機螢幕時預留右側距離給時間軸 */
+    .timeline>li:not(.timeline-right) {
+        padding-right: 100px;
+    }
+    /* 當手機螢幕時預留右側距離給時間軸 */
+    .timeline>li.timeline-right {
+        padding-left: 0;
+        padding-right: 100px;
+    }
+    /* 當手機螢幕時設定圓點的位置到右側去 */
+    .timeline>li>.timeline-circle {
+        left: inherit;
+        right: px;
+    }
+    /* 當手機螢幕時設定時間軸的位置到右側去 */
+    .timeline:before {
+        left: inherit;
+        right: 40px;
+    }
+    /* 當手機螢幕時把右排的箭頭移動到右側顯示 */
+    .timeline>li.timeline-right .timeline-content:after {
+        border-left-width: 12px;
+        border-right-width: 0px;
+        left: auto;
+        right: -12px;
+    }
+}
+
+
+/*=============================================
+=            Ability           =
+=============================================*/
